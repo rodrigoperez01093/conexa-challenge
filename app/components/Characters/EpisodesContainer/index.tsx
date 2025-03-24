@@ -36,27 +36,32 @@ const EpisodesContainer = () => {
     fetchEpisode(charactersState, setLoading, setError, setEpisodes);
   }, [charactersState]);
 
-  console.log("estados", episodes);
-
   return (
-    <LoadAndDisplaySection
-      loading={loading}
-      error={error}
-      loadingMessage={"Searching episodes..."}
-      errorMessage="Please select both characters to see episodes"
-    >
-      <div className="border rounded-lg w-full h-full flex flex-row items-center justify-between px-2 py-2">
-        <EpisodeSection
-          episodes={episodes.firstCharacter}
-          title={`${charactersState[0].character?.name} episodes`}
-        />
-        <EpisodeSection episodes={episodes.sharedEpisodes} />
-        <EpisodeSection
-          episodes={episodes.secondCharacter}
-          title={`${charactersState[1].character?.name} episodes`}
-        />
-      </div>
-    </LoadAndDisplaySection>
+    <div className="w-full border rounded-lg border-primary shadow-lg h-full lg:h-[350px] mt-2 px-2 py-2">
+      <LoadAndDisplaySection
+        loading={loading}
+        error={error}
+        loadingMessage={"Searching episodes..."}
+        errorMessage="Please select both characters to see episodes"
+      >
+        <div className="w-full h-full flex flex-col lg:flex-row items-start justify-between">
+          <EpisodeSection
+            episodes={episodes.firstCharacter}
+            title={`${charactersState[0].character?.name} episodes`}
+            section={1}
+          />
+          <EpisodeSection
+            episodes={episodes.sharedEpisodes}
+            title="Shared episodes"
+          />
+          <EpisodeSection
+            episodes={episodes.secondCharacter}
+            title={`${charactersState[1].character?.name} episodes`}
+            section={2}
+          />
+        </div>
+      </LoadAndDisplaySection>
+    </div>
   );
 };
 

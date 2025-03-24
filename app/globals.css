@@ -27,6 +27,27 @@ body {
 }
 
 @layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #00dca1;
+    border-radius: 8px;
+    border: solid 1px #ffffff;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #272727;
+    border: solid 4px #272727;
+  }
+
+  .swal2-container.swal2-center > .swal2-popup {
+    border-radius: 40px;
+  }
+}
+
+@layer utilities {
   .text-balance {
     text-wrap: balance;
   }
