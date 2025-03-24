@@ -6,7 +6,8 @@ export const fetchCharacters = async (
   filters: filtersProps,
   paging: pagingProps,
   setData: any,
-  setLoading: any
+  setLoading: any,
+  setError: any
 ): Promise<void> => {
   try {
     setLoading(true);
@@ -23,8 +24,10 @@ export const fetchCharacters = async (
     console.log("characters", data);
     setData(data);
     setLoading(false);
+    setError(false);
   } catch (error) {
     console.log(error);
     setLoading(false);
+    setError(true);
   }
 };

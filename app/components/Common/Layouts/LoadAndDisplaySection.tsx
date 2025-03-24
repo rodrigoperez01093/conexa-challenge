@@ -17,7 +17,7 @@ const LoadAndDisplaySection: React.FC<LoadAndDisplaySectionProps> = ({
   loading = false,
   error = false,
   children,
-  errorMessage = "Error loading characters",
+  errorMessage = "No characters founded",
   loadingMessage = "Searching characters...",
 }) => {
   return (

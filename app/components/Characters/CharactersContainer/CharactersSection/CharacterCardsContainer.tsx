@@ -11,9 +11,8 @@ const CharacterCardsContainer = ({
   characters,
   characterSectionId,
 }: CharacterCardsContainerProps) => {
-  console.log("datra aaaa", characters);
   return (
-    <div className="w-full max-h-[300px] overflow-y-auto flex flex-wrap justify-evenly px-2">
+    <div className="w-full h-[250px] lg:h-[300px] overflow-y-auto flex flex-row flex-wrap justify-evenly mt-10 lg:mt-0 lg:px-2 scrollbar">
       {characters &&
         characters.length > 0 &&
         characters.map((character: Character) => (
