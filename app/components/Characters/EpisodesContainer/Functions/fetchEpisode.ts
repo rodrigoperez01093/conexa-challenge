@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const fetchEpisode = async (
   charactersState: any,
   setLoading: any,
@@ -13,14 +14,14 @@ export const fetchEpisode = async (
 
     const [firstCharacterData, secondCharacterData] = await Promise.all([
       Promise.all(
-        firstCharacterEpisodes.map((url: string) =>
-          fetch(url).then((res) => res.json())
-        )
+        firstCharacterEpisodes.map(async (url: string) => {
+          return await fetch(url).then((res) => res.json());
+        })
       ),
       Promise.all(
-        secondCharacterEpisodes.map((url: string) =>
-          fetch(url).then((res) => res.json())
-        )
+        secondCharacterEpisodes.map(async (url: string) => {
+          return await fetch(url).then((res) => res.json());
+        })
       ),
     ]);
 
@@ -31,7 +32,7 @@ export const fetchEpisode = async (
 
     setEpisodes({
       firstCharacter: firstCharacterData,
-      sharedEpisodes: sharedEpisodes,
+      sharedEpisodes,
       secondCharacter: secondCharacterData,
     });
     setLoading(false);

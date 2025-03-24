@@ -4,7 +4,7 @@ import { useAppSelector } from "@/redux/hooks";
 import LoadAndDisplaySection from "../../Common/Layouts/LoadAndDisplaySection";
 import { fetchEpisode } from "./Functions/fetchEpisode";
 import EpisodeSection from "./EpisodeSection";
-import { Episode } from "@/interfaces/interfaces";
+import { type Episode } from "@/interfaces/interfaces";
 
 interface EpisodeProps {
   firstCharacter: Episode[];

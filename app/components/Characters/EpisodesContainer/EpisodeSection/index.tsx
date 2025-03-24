@@ -1,6 +1,6 @@
 import React from "react";
 import EpisodeCard from "./EpisodeCard";
-import { Episode } from "@/interfaces/interfaces";
+import { type Episode } from "@/interfaces/interfaces";
 
 interface EpisodeSectionProps {
   episodes: Episode[];

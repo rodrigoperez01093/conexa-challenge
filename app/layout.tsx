@@ -15,9 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen w-full bg-white">
-      <Providers>
-        {children}
-      </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

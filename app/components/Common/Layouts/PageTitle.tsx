@@ -23,7 +23,7 @@ const PageTitle: React.FC<PageTitleProps> = ({
         {title}{" "}
         {title2 !== "" && <span className="text-stamm-primary">{title2}</span>}
       </h1>
-        {logo}
+      {logo}
       {rightAction}
     </section>
   );
