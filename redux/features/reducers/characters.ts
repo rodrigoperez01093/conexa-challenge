@@ -17,7 +17,7 @@ export const charactersReducer = createReducer(initialState, (builder) => {
       const { character, section, episode } = action.payload
       const isCharacterAlreadySelected = state.charactersSelected[section].character?.id === character?.id
       if(isCharacterAlreadySelected) {
-        state.charactersSelected[section].character = {}
+        state.charactersSelected[section].character = undefined
         state.charactersSelected[section].episode = []
         return
       }

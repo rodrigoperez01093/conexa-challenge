@@ -21,8 +21,6 @@ const CharactersSection = ({characterSectionId}: any) => {
   useEffect(() => {
     fetchCharacters(filters, paging, setData, setLoading)
   }, [filters, paging])    
-
-  console.log("FILTOS", filters, paging)
   
   return (
     <div className='w-1/2 h-full first:mr-2 last:ml-2 shadow-lg border border-primary rounded-lg px-2 py-2'>
