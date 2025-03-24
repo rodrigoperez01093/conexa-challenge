@@ -1,10 +1,14 @@
 import React from 'react'
+import PageLayout from '../Common/Layouts/PageLayout';
+import CharactersContainer from './CharactersContainer';
+import PageTitle from '../Common/Layouts/PageTitle';
 
 const CharactersView = () => {
   return (
-    <div className='w-full h-full'>
-      <h1>First steps</h1>
-    </div>
+   <PageLayout width='w-[80%]'>
+    <PageTitle title='Rick and Morty' />
+    <CharactersContainer />
+   </PageLayout>
   )
 }
 
