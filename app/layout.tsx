@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "@/redux/Provider";
 
 export const metadata: Metadata = {
   title: "Conexa - Rick and Morty",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen w-full bg-white">{children}</body>
+      <body className="h-screen w-full bg-white">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
