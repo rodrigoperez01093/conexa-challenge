@@ -11,9 +11,13 @@ const CharacterCardsContainer = ({
         {
             characters && characters.length > 0 && characters.map((character: any) => (
                 <CharacterCard 
-                    key={character.id} 
+                    key={character.id}
+                    characterSectionId={characterSectionId}
+                    character={character}
+                    id={character.id} 
                     name={character.name} 
                     image={character.image}
+                    episode={character.episode}
                 />
             ))
         }

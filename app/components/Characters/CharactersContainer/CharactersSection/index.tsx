@@ -25,7 +25,7 @@ const CharactersSection = ({characterSectionId}: any) => {
   console.log("FILTOS", filters, paging)
   
   return (
-    <div className='w-1/2 h-full '>
+    <div className='w-1/2 h-full first:mr-2 last:ml-2 shadow-lg border border-primary rounded-lg px-2 py-2'>
       <Filters 
         filters={filters}
         setFilters={setFilters}
