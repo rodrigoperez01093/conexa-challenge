@@ -21,7 +21,6 @@ export const fetchCharacters = async (
     const { data } = await axios.get(
       endpoints("characters") + `/?${pagingString}${filterString}`
     );
-    console.log("characters", data);
     setData(data);
     setLoading(false);
     setError(false);

@@ -1,5 +1,6 @@
+/* eslint-disable */
 import axios from "axios";
-import { fetchCharacters } from "./fetchCharacters"; // Adjust the import path as needed
+import { fetchCharacters } from "./fetchCharacters";
 import { endpoints } from "@/config";
 
 jest.mock("axios");
