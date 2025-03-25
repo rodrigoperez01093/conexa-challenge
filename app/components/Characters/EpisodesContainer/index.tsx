@@ -37,7 +37,7 @@ const EpisodesContainer = () => {
   }, [charactersState]);
 
   return (
-    <div className="w-full border rounded-lg border-primary shadow-lg h-full lg:h-[350px] mt-2 px-2 py-2">
+    <div className="w-full border rounded-lg border-primary shadow-lg h-full lg:h-[350px] mt-2 px-2 py-2 mb-10 overflow-hidden">
       <LoadAndDisplaySection
         loading={loading}
         error={error}
