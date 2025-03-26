@@ -14,7 +14,6 @@ const CharacterCard = ({
   species,
   location,
   image,
-  episode,
 }: any) => {
   const dispatch = useAppDispatch();
   const charactersState = useAppSelector(
@@ -25,7 +24,6 @@ const CharacterCard = ({
       setSelectedCharacter({
         character,
         section: characterSectionId,
-        episode,
       })
     );
   };

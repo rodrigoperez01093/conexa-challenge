@@ -1,15 +1,13 @@
 import React from "react";
 import PageLayout from "../Common/Layouts/PageLayout";
 import CharactersContainer from "./CharactersContainer";
-import EpisodesContainer from "./EpisodesContainer";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
-// import Graph from "./DataVisualization";
 import dynamic from "next/dynamic";
 
-const DataVisualization = dynamic(
-  async () => await import("./DataVisualization/"),
-  { ssr: false } // Deshabilita el SSR para este componente
+const EpisodesContainer = dynamic(
+  async () => await import("./EpisodesContainer/"),
+  { ssr: false }
 );
 
 const CharactersView = () => {
@@ -20,7 +18,6 @@ const CharactersView = () => {
       </div>
       <CharactersContainer />
       <EpisodesContainer />
-      <DataVisualization />
     </PageLayout>
   );
 };

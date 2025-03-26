@@ -26,7 +26,6 @@ const CharacterCardsContainer = ({
             species={character.species}
             location={character.location.name}
             image={character.image}
-            episode={character.episode}
           />
         ))}
     </div>

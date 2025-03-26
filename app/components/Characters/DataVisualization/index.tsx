@@ -1,66 +1,37 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import "aframe";
 import { ForceGraph3D } from "react-force-graph";
+import "aframe";
 
-const Graph = () => {
-  const charactersData = [
-    {
-      id: 1,
-      name: "Rick Sanchez",
-      episode: [
-        "https://rickandmortyapi.com/api/episode/1",
-        "https://rickandmortyapi.com/api/episode/2",
-      ],
-    },
-    {
-      id: 2,
-      name: "Morty Smith",
-      episode: [
-        "https://rickandmortyapi.com/api/episode/1",
-        "https://rickandmortyapi.com/api/episode/2",
-        "https://rickandmortyapi.com/api/episode/3",
-      ],
-    },
-  ];
-
-  const episodesData = [
-    { id: 1, name: "Pilot" },
-    { id: 2, name: "Lawn Mower Dog" },
-    { id: 3, name: "Rick Potion No. 9" },
-  ];
+const Graph = ({ characters, episodes }: any) => {
   const [graphData, setGraphData] = useState({ nodes: [], links: [] });
   useEffect(() => {
+    const charactersData = characters.map((char: any) => char.character);
     const nodes: any = [];
     const links: any = [];
 
-    // Agregar nodos de personajes
-    charactersData.forEach((character, index) => {
+    charactersData.forEach((character: any) => {
       nodes.push({
         id: `character-${character.id}`,
-        name: character.name,
-        group: 1, // Grupo para personajes
+        name: `Character: ${character.name} - Status: ${character.status}`,
+        group: 1,
       });
 
       // Relacionar personajes con episodios
-      character.episode.forEach((episodeUrl) => {
-        // const episodeId = episodeUrl.split("/").pop(); // Extraer id del episodio
-        const episodeId = parseInt(episodeUrl.split("/").pop() ?? "");
+      character.episode.forEach((episodeUrl: any) => {
+        const episodeId = parseInt(episodeUrl.split("/").pop());
 
-        // Verificar si el nodo del episodio ya está creado
         if (!nodes.some((node: any) => node.id === `episode-${episodeId}`)) {
-          // Agregar nodo de episodio
-          const episode = episodesData.find((ep: any) => ep.id === episodeId);
+          const episode = episodes.find((ep: any) => ep.id === episodeId);
           if (episode) {
             nodes.push({
               id: `episode-${episode.id}`,
-              name: episode.name,
-              group: 2, // Grupo para episodios
+              name: `Episode: ${episode.episode} - Name: ${episode.name}`,
+              group: 2,
             });
           }
         }
 
-        // Crear un enlace entre el personaje y el episodio
         links.push({
           source: `character-${character.id}`,
           target: `episode-${episodeId}`,
@@ -70,17 +41,30 @@ const Graph = () => {
 
     setGraphData({ nodes, links });
   }, []);
-  console.log("DATA", graphData);
+
   return (
-    <div className="w-full">
+    <div
+      className="w-[80%] h-[500px] border border-primary shadow-lg rounded-lg"
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <ForceGraph3D
         graphData={graphData}
         nodeAutoColorBy="group"
         nodeLabel="name"
-        linkCurvature={0.2}
+        linkCurvature={0}
         linkWidth={2}
-        width={window.innerWidth}
+        width={window.innerWidth * 0.8}
         height={500}
+        nodeColor={(node: any) => {
+          if (node.group === 1) {
+            if (node.name.includes("Alive")) return "#08D09D";
+            return "#FF5733";
+          }
+          if (node.group === 2) return "#EDF037";
+          return "#888";
+        }}
       />
     </div>
   );
