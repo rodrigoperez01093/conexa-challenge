@@ -38,13 +38,13 @@ Open a window and navigate to <http://localhost:3000>
 
 <div align="center">
 
-(![alt text](/conexa-challenge/public/image.png))
+![alt text](./public/image.png)
 
 </div>
 
 <div align="center">
 
-![alt text](/conexa-challenge/public/image-1.png)
+![alt text](./public/image-1.png)
 
 </div>
 
