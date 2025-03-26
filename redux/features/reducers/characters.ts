@@ -2,7 +2,6 @@ import { createReducer } from "@reduxjs/toolkit";
 import {
   resetCharactersReducer,
   setSelectedCharacter,
-  setEpisodes,
 } from "../actions/characters";
 
 const initialState: any = {
@@ -24,8 +23,5 @@ export const charactersReducer = createReducer(initialState, (builder) => {
         return;
       }
       state.charactersSelected[section].character = character;
-    })
-    .addCase(setEpisodes, (state, action) => {
-      state.episodes = action.payload;
     });
 });
