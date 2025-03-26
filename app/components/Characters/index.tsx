@@ -1,9 +1,14 @@
 import React from "react";
 import PageLayout from "../Common/Layouts/PageLayout";
 import CharactersContainer from "./CharactersContainer";
-import EpisodesContainer from "./EpisodesContainer";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
+import dynamic from "next/dynamic";
+
+const EpisodesContainer = dynamic(
+  async () => await import("./EpisodesContainer/"),
+  { ssr: false }
+);
 
 const CharactersView = () => {
   return (

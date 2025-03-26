@@ -1,3 +1,4 @@
+import { sharedEpisodes } from "../helpers/sharedEpisodes";
 /* eslint-disable */
 export const fetchEpisode = async (
   charactersState: any,
@@ -6,7 +7,6 @@ export const fetchEpisode = async (
   setEpisodes: any
 ) => {
   try {
-    console.log("se ejecuta");
     setLoading(true);
     const firstCharacterEpisodes = charactersState[0]?.character?.episode || [];
     const secondCharacterEpisodes =
@@ -24,15 +24,13 @@ export const fetchEpisode = async (
         })
       ),
     ]);
-
-    const firstEpisodeIds = new Set(firstCharacterData.map((ep) => ep.id));
-    const sharedEpisodes = secondCharacterData.filter((ep) =>
-      firstEpisodeIds.has(ep.id)
+    const sharedEpisodesData = sharedEpisodes(
+      firstCharacterData,
+      secondCharacterData
     );
-
     setEpisodes({
       firstCharacter: firstCharacterData,
-      sharedEpisodes,
+      sharedEpisodes: sharedEpisodesData,
       secondCharacter: secondCharacterData,
     });
     setLoading(false);

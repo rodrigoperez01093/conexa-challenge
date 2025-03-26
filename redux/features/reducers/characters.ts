@@ -5,10 +5,8 @@ import {
 } from "../actions/characters";
 
 const initialState: any = {
-  charactersSelected: [
-    { character: undefined, episode: [] },
-    { character: undefined, episode: [] },
-  ],
+  charactersSelected: [{ character: undefined }, { character: undefined }],
+  episodes: [],
 };
 
 export const charactersReducer = createReducer(initialState, (builder) => {
@@ -22,10 +20,8 @@ export const charactersReducer = createReducer(initialState, (builder) => {
         state.charactersSelected[section].character?.id === character?.id;
       if (isCharacterAlreadySelected) {
         state.charactersSelected[section].character = undefined;
-        state.charactersSelected[section].episode = [];
         return;
       }
       state.charactersSelected[section].character = character;
-      state.charactersSelected[section].episode = episode;
     });
 });
